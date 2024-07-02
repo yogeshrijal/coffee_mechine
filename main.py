@@ -43,6 +43,14 @@ print(logo)
 print("Welcome to the coffee machine :)")
 while True:
     coffee = input("What would you like? (espresso/latte/cappuccino): ").lower()
+    milk_amount = resources['milk']
+    water_amount = resources['water']
+    coffee_amount = resources['coffee']
+    if coffee == 'report':
+        print(f" milk: {milk_amount}ml\n"
+              f" water: {water_amount}ml\n"
+              f" coffee: {coffee_amount}g")
+
     if coffee in menu:
         if check_resources(coffee):
             if cost(coffee):
@@ -52,7 +60,7 @@ while True:
             milk_amount = resources['milk']
             water_amount = resources['water']
             coffee_amount = resources['coffee']
-            print(f"Remaining milk: {milk_amount}ml, remaining water: {water_amount}ml, remaining coffee: {coffee_amount}g")
+
         else:
             print("Insufficient resources to make coffee.")
     else:
